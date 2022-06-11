@@ -101,25 +101,3 @@ class center_Content extends StatelessWidget {
     );
   }
 }
-
-class Flipcard extends StatefulWidget {
-  final String imgpath;
-  const Flipcard({required Key key, required this.imgpath}) : super(key: key);
-  final int xy = 0;
-
-  @override
-  State<Flipcard> createState() => _FlipcardState();
-}
-
-class _FlipcardState extends State<Flipcard> {
-  @override
-  Widget build(BuildContext context) {
-    return Image.asset(
-      widget.imgpath,
-      key: ValueKey<String>(widget.imgpath),
-      height: 290,
-      width: 200,
-      fit: BoxFit.fill,
-    );
-  }
-}
