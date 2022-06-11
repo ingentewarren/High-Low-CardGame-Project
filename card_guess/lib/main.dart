@@ -48,7 +48,7 @@ class _myHomeState extends State<myHome> {
                 image: DecorationImage(
                     scale: 5,
                     image: AssetImage("images/backgroundimg/logo1.png"),
-                    fit: BoxFit.fill)),
+                    fit: BoxFit.contain)),
           ),
         ),
         Container(
