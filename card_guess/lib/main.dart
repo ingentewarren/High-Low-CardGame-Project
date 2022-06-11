@@ -38,83 +38,59 @@ class _myHomeState extends State<myHome> {
           fit: BoxFit.cover,
         ),
       ),
-      child: SingleChildScrollView(
-        child: Column(children: [
-          Container(
-            height: 350,
-            width: 900,
+      child: Column(children: [
+        Expanded(
+          flex: 1,
+          child: Container(
+            width: 800,
             alignment: Alignment.center,
             decoration: BoxDecoration(
                 image: DecorationImage(
                     scale: 5,
-                    image: AssetImage("images/backgroundimg/logo.png"),
-                    fit: BoxFit.cover)),
+                    image: AssetImage("images/backgroundimg/logo1.png"),
+                    fit: BoxFit.fill)),
           ),
-          Container(
-            child: TextButton(
-              onPressed: () {
-                setState(() {
-                  list.shuffle();
-                });
-                NextScreen(context);
-              },
-              child: Container(
-                alignment: Alignment.center,
-                height: 200,
-                width: 350,
-                child: FittedBox(
-                  child: Image.asset(
-                    'images/backgroundimg/Play1.png',
-                    fit: BoxFit.fill,
-                  ),
+        ),
+        Container(
+          child: TextButton(
+            onPressed: () {
+              setState(() {
+                list.shuffle();
+              });
+              NextScreen(context);
+            },
+            child: Container(
+              alignment: Alignment.center,
+              height: 200,
+              width: 350,
+              child: FittedBox(
+                child: Image.asset(
+                  'images/backgroundimg/Play1.png',
+                  fit: BoxFit.fill,
                 ),
               ),
             ),
           ),
-          Container(
-            padding: EdgeInsets.all(20),
-            child: ElevatedButton(
-              child: Text(
-                'HOW TO PLAY',
-                style: TextStyle(fontSize: 30.0, color: Colors.white),
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const How_To_Play()),
-                );
-              },
+        ),
+        Container(
+          padding: EdgeInsets.all(20),
+          child: ElevatedButton(
+            child: Text(
+              'HOW TO PLAY',
+              style: TextStyle(fontSize: 30.0, color: Colors.white),
             ),
-          ),
-        ]),
-      ),
-    );
-  }
-}
-
-/*
-class textfield extends StatelessWidget {
-  const textfield({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      child: Container(
-        width: 300,
-        child: TextFormField(
-          decoration: InputDecoration(
-            fillColor: Colors.transparent,
-            filled: true,
-            border: UnderlineInputBorder(),
-            labelText: 'log in as guest',
-            hintText: 'input your nickname',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const How_To_Play()),
+              );
+            },
           ),
         ),
-      ),
+      ]),
     );
   }
 }
-*/
 
 void NextScreen(BuildContext context) {
   Navigator.of(context)

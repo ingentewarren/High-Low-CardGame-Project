@@ -89,57 +89,60 @@ class _flipCarpState extends State<flipCard> {
             alignment: Alignment.center,
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  if (isdesktop(BuildContext))
-                    Center(
-                      child: AnimatedSwitcher(
-                        duration: Duration(seconds: 1),
-                        switchInCurve: Curves.ease,
-                        switchOutCurve: Curves.easeIn,
-                        child: isFlipped ? second() : first(),
-                        transitionBuilder: transition,
-                      ),
-                    ),
-                  Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: Container(
-                      height: 40,
-                      width: 100,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50)),
-                      child: ElevatedButton(
-                        style: ButtonStyle(
-                          overlayColor:
-                              MaterialStateProperty.resolveWith<Color?>(
-                            (Set<MaterialState> states) {
-                              if (states.contains(MaterialState.pressed))
-                                return Color.fromARGB(255, 238, 23, 23);
-                              return null; // Defer to the widget's default.
-                            },
-                          ),
+              child: Expanded(
+                flex: 1,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    if (isdesktop(BuildContext))
+                      Center(
+                        child: AnimatedSwitcher(
+                          duration: Duration(seconds: 1),
+                          switchInCurve: Curves.ease,
+                          switchOutCurve: Curves.easeIn,
+                          child: isFlipped ? second() : first(),
+                          transitionBuilder: transition,
                         ),
-                        child: const Text("SHUFFLE"),
-                        onPressed: () async {
-                          setState(() {
-                            if (isFlipped = !isFlipped) {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) =>
-                                      system_update_wrong_button()));
-                            }
-                          });
-                        },
+                      ),
+                    Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Container(
+                        height: 40,
+                        width: 100,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50)),
+                        child: ElevatedButton(
+                          style: ButtonStyle(
+                            overlayColor:
+                                MaterialStateProperty.resolveWith<Color?>(
+                              (Set<MaterialState> states) {
+                                if (states.contains(MaterialState.pressed))
+                                  return Color.fromARGB(255, 238, 23, 23);
+                                return null; // Defer to the widget's default.
+                              },
+                            ),
+                          ),
+                          child: const Text("SHUFFLE"),
+                          onPressed: () async {
+                            setState(() {
+                              if (isFlipped = !isFlipped) {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) =>
+                                        system_update_wrong_button()));
+                              }
+                            });
+                          },
+                        ),
                       ),
                     ),
-                  ),
-                  Container(
-                      height: 250,
-                      width: 170,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20)),
-                      child: third()),
-                ],
+                    Container(
+                        height: 250,
+                        width: 170,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20)),
+                        child: third()),
+                  ],
+                ),
               ),
             ),
           ),
